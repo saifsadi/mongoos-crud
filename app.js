@@ -59,7 +59,11 @@ const studentSchema = new mongoose.Schema(
   {
     name : String,
     class : String,
-    age : Number,
+    age : {
+      type : Number,
+      min : 18,
+      max : 25
+    },
     address : String
   }
 );
@@ -68,45 +72,45 @@ const Student = mongoose.model("Student", studentSchema);
 
 const student = new Student (
   {
-    name : "Kashif Islam Ahmed",
+    name : "Kashif Khan",
     class : "First Year - 2019",
-    age : 22,
-    address : "Barafkhana Rawalpindi"
+    age : 24,
+    address : "Peshaer"
   }
 );
 
 //fruit.save();
 //people.save();
 //car.save();
-//student.save();
+student.save();
 
 
-const saif = new Student(
-  {
-    name : "Saif Ur Rehman",
-    class : "Masters",
-    age : 24,
-    address : "Rawalpindi"
-  }
-);
-
-const sami = new Student(
-  {
-    name : "Sami Ur Rehman",
-    class : "Second Year",
-    age : 22,
-    address : "Lahore"
-  }
-);
-
-const khalil = new Student(
-  {
-    name : "Khalil Ur Rehman",
-    class : "Masters",
-    age : 24,
-    address : "Peshawer"
-  }
-);
+// const saif = new Student(
+//   {
+//     name : "Saif Ur Rehman",
+//     class : "Masters",
+//     age : 24,
+//     address : "Rawalpindi"
+//   }
+// );
+//
+// const sami = new Student(
+//   {
+//     name : "Sami Ur Rehman",
+//     class : "Second Year",
+//     age : 22,
+//     address : "Lahore"
+//   }
+// );
+//
+// const khalil = new Student(
+//   {
+//     name : "Khalil Ur Rehman",
+//     class : "Masters",
+//     age : 24,
+//     address : "Peshawer"
+//   }
+// );
 
 // Student.insertMany([saif, sami, khalil], function(err){
 //   if(err){
@@ -117,28 +121,28 @@ const khalil = new Student(
 // });
 
 
-Student.find(function(err, students){
-  if(err){
-    console.log(err);
-  } else {
-    mongoose.connection.close();
-    students.forEach(function(student) {
-      console.log(student.name);
-    }
-  );
-  }
-});
+// Student.find(function(err, students){
+//   if(err){
+//     console.log(err);
+//   } else {
+//     mongoose.connection.close();
+//     students.forEach(function(student) {
+//       console.log(student.name);
+//     }
+//   );
+//   }
+// });
 
-//Get Data from Database
-
-const findDocuments = function(db, callback) {
-  // Get the documents collection
-  const collection = db.collection('fruits');
-  // Find some documents
-  collection.find({}).toArray(function(err, fruits) {
-    assert.equal(err, null);
-    console.log("Found the following records");
-    console.log(fruits);
-    callback(fruits);
-  });
-};
+// //Get Data from Database
+//
+// const findDocuments = function(db, callback) {
+//   // Get the documents collection
+//   const collection = db.collection('fruits');
+//   // Find some documents
+//   collection.find({}).toArray(function(err, fruits) {
+//     assert.equal(err, null);
+//     console.log("Found the following records");
+//     console.log(fruits);
+//     callback(fruits);
+//   });
+// };
