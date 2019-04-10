@@ -1,0 +1,15 @@
+{
+  "name": "fruits-mongo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Saif Sadi",
+  "license": "ISC",
+  "dependencies": {
+    "mongodb": "^3.2.3",
+    "mongoose": "^5.5.0"
+  }
+}
